@@ -1,7 +1,9 @@
 export default function orderByProps(object, arrStart) { // функция для создания массива
   const arrKey = []; // пустой массив для ключей
   for (const el in object) { // перебираем ключи и добавляем в массив c ключами
-    arrKey.push(el);
+    if ({}.hasOwnProperty.call(object, el)) {
+      arrKey.push(el);
+    }
   }
   const arrResult = []; // пустой итоговый массив
   arrKey.sort(); // сортируем массив с ключами
